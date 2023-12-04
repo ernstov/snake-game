@@ -1,0 +1,36 @@
+namespace: snake-game
+
+mongo-db:
+  defines: runnable
+  inherits: mongodb/mongodb
+  metadata:
+    name: mongo-db
+    description: MongoDB database service required by the backend for data persistence.
+    icon: >-
+      https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA8VbFgxH-i78AZmNqD93mVRkTRd30POqLeCmg9T05ug&s
+  variables:
+    mongo-image:
+      type: string
+      value: latest
+      description: ''
+    mongo-init-database:
+      type: string
+      value: mongo
+      description: ''
+    mongo-init-password:
+      type: string
+      value: password
+      description: ''
+    mongo-init-username:
+      type: string
+      value: mongo
+      description: ''
+    mongodb-image:
+      type: string
+      value: latest
+      description: ''
+
+stack:
+  defines: group
+  members:
+    - snake-game/mongo-db
